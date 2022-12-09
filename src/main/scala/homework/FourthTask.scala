@@ -7,7 +7,7 @@ object FourthTask extends App {
 
   val spark = SparkSession
     .builder()
-    .appName("ColumnsPractice")
+    .appName("FourthTask")
     .master("local")
     .getOrCreate()
 
