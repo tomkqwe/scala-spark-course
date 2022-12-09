@@ -1,4 +1,4 @@
-import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object ReadFromFileFIrstTime extends App {
 
