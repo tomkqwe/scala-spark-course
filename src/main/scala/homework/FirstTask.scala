@@ -1,5 +1,6 @@
-import org.apache.spark.sql.SparkSession
-import org.apache.spark.sql.DataFrame
+package homework
+
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object FirstTask extends App {
   private val session: SparkSession = SparkSession.builder().

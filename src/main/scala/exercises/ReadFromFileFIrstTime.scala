@@ -1,3 +1,5 @@
+package exercises
+
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object ReadFromFileFIrstTime extends App {
@@ -13,12 +15,12 @@ object ReadFromFileFIrstTime extends App {
     .option("inferShema", "true")
     .load("src/resources/iris.json")
 
-//  frame.show(2)
-//  frame.printSchema()
-//private val rows: Array[Row] = frame.take(3)
-//  rows.foreach(println(_))
+  //  frame.show(2)
+  //  frame.printSchema()
+  //private val rows: Array[Row] = frame.take(3)
+  //  rows.foreach(println(_))
 
-//  frame.take(3).foreach(print)
+  //  frame.take(3).foreach(print)
   session.close()
 
 }

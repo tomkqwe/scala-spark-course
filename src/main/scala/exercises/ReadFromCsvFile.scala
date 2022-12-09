@@ -1,3 +1,5 @@
+package exercises
+
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object ReadFromCsvFile extends App {
