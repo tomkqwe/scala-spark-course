@@ -1,14 +1,14 @@
 [debug] Created transactional ClassFileManager with tempDir = C:\Users\avlebedev\IdeaProjects\spark-course\target\scala-2.13\classes.bak
 [debug] About to delete class files:
-[debug] 	SecondTaskExtention.class
-[debug] 	SecondTaskExtention$delayedInit$body.class
-[debug] 	SecondTaskExtention$.class
+[debug] 	FourthTask.class
+[debug] 	FourthTask$.class
+[debug] 	FourthTask$delayedInit$body.class
 [debug] We backup class files:
-[debug] 	SecondTaskExtention.class
-[debug] 	SecondTaskExtention$delayedInit$body.class
-[debug] 	SecondTaskExtention$.class
+[debug] 	FourthTask.class
+[debug] 	FourthTask$.class
+[debug] 	FourthTask$delayedInit$body.class
 [debug] Registering generated classes:
-[debug] 	SecondTaskExtention.class
-[debug] 	SecondTaskExtention$delayedInit$body.class
-[debug] 	SecondTaskExtention$.class
+[debug] 	FourthTask.class
+[debug] 	FourthTask$.class
+[debug] 	FourthTask$delayedInit$body.class
 [debug] Removing the temporary directory used for backing up class files: C:\Users\avlebedev\IdeaProjects\spark-course\target\scala-2.13\classes.bak
