@@ -1,9 +1,8 @@
 package homework
 
-import exercises.DataSetPracticePartTwo.ageDS.withColumnRenamed
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
-import org.apache.spark.sql.{DataFrame, Dataset, Row, SparkSession}
+import org.apache.spark.sql.{DataFrame, SparkSession}
 
 object TenthTask extends App {
 
@@ -38,15 +37,17 @@ object TenthTask extends App {
     .groupBy(Company, Location)
     .sum(CompanyReviews)
 
-  val minValueCompany = companyReview.select(min(col(SumCompanyReviews))).collect().head.get(0)
-  val maxValueCompany = companyReview.select(max(col(SumCompanyReviews))).collect().head.get(0)
+
+
+  val minValueCompany = getMaxAndMinValues(companyReview,"min")
+  val maxValueCompany = getMaxAndMinValues(companyReview,"max")
 
   val jobTitleReview = editCompanyReviewsColumn
     .groupBy(JobTitle, Location)
     .sum(CompanyReviews)
 
-  val minValueJobTitle = jobTitleReview.select(min(col(SumCompanyReviews))).collect().head.get(0)
-  val maxValueJobTitle = jobTitleReview.select(max(col(SumCompanyReviews))).collect().head.get(0)
+  val minValueJobTitle = getMaxAndMinValues(jobTitleReview,"min")
+  val maxValueJobTitle = getMaxAndMinValues(jobTitleReview,"max")
 
    val maxCompany = getMaxAndMinReviews(maxValueCompany,Company)
    val minCompany = getMaxAndMinReviews(minValueCompany,Company)
@@ -57,6 +58,12 @@ object TenthTask extends App {
     .select("name","stats_type","location","count","count_type")
     .show()
 
+  def getMaxAndMinValues(df: DataFrame, minOrMax: String): Any = {
+    minOrMax match {
+      case "min" => df.select(min(col(SumCompanyReviews))).collect().head.get(0)
+      case "max" => df.select(max(col(SumCompanyReviews))).collect().head.get(0)
+    }
+  }
   private def getMaxAndMinReviews(value:Any,companyOrJobTitle:String):DataFrame = {
     val tmpDf = companyOrJobTitle match {
       case TenthTask.Company => companyReview.where(col(SumCompanyReviews) === value).limit(1)
