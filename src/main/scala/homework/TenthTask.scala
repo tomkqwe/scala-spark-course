@@ -29,21 +29,21 @@ object TenthTask extends App {
 
   private val Company = "Company"
   private val JobTitle = "JobTitle"
-  private val CompanyRewies = "CompanyReviews"
-  private val SumCompanyReviews = "sum(" + CompanyRewies + ")"
+  private val CompanyReviews = "CompanyReviews"
+  private val SumCompanyReviews = "sum(" + CompanyReviews + ")"
   private val Location = "Location"
 
   val companyReview = editCompanyReviewsColumn
     .withColumn(Company, regexp_replace(col(Company), "[ *\\n *]", ""))
     .groupBy(Company, Location)
-    .sum(CompanyRewies)
+    .sum(CompanyReviews)
 
   val minValueCompany = companyReview.select(min(col(SumCompanyReviews))).collect().head.get(0)
   val maxValueCompany = companyReview.select(max(col(SumCompanyReviews))).collect().head.get(0)
 
   val jobTitleReview = editCompanyReviewsColumn
     .groupBy(JobTitle, Location)
-    .sum(CompanyRewies)
+    .sum(CompanyReviews)
 
   val minValueJobTitle = jobTitleReview.select(min(col(SumCompanyReviews))).collect().head.get(0)
   val maxValueJobTitle = jobTitleReview.select(max(col(SumCompanyReviews))).collect().head.get(0)
@@ -78,7 +78,7 @@ object TenthTask extends App {
 
   def editCompanyReviewsColumn: DataFrame = {
     df.na.drop()
-      .withColumn(CompanyRewies, regexp_replace(col(CompanyRewies), "\\D", "").cast(IntegerType))
+      .withColumn(CompanyReviews, regexp_replace(col(CompanyReviews), "\\D", "").cast(IntegerType))
   }
 
   spark.close()
