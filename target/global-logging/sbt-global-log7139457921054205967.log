@@ -1,7 +1,0 @@
-[debug] > Exec(all {file:/C:/Users/avlebedev/IdeaProjects/spark-course/}root/products {file:/C:/Users/avlebedev/IdeaProjects/spark-course/}root/test:products, None, None)
-[debug] Evaluating tasks: Compile / products, Test / products
-[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
-[success] Total time: 0 s, completed 08.12.2022 12:41:42
-[debug] > Exec(idea-shell, None, None)
-[debug] > Exec(, None, None)
-[debug] > Exec(idea-shell, None, None)

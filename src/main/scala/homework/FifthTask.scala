@@ -22,7 +22,9 @@ object FifthTask extends App {
   bikeSharingDF.withColumn("is_workday",
     when(firstCondition && secondCondition, 0)
       .otherwise(1))
-    .select("HOLIDAY", "FUNCTIONING_DAY", "is_workday")
+    .select("HOLIDAY",
+      "FUNCTIONING_DAY",
+      "is_workday")
     .distinct()
     .show()
 
